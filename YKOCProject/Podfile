@@ -1,0 +1,16 @@
+source 'https://github.com/YakirLove/LocalPod.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'YKOCProject' do
+    
+    pod 'AFNetworking', '~> 3.1.0'
+    pod 'Masonry', '~> 1.0.2'
+    pod 'Reachability', '~> 3.2'
+    pod 'FDFullscreenPopGesture', '~> 1.1'
+    pod 'BusinessZ', '~> 0.1.4'
+    pod 'MJRefresh', '~> 3.1.14.1'
+    pod 'pop', '~> 1.0.10'
+    
+end

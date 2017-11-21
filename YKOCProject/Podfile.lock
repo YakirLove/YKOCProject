@@ -1,0 +1,44 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BusinessZ (0.1.4)
+  - FDFullscreenPopGesture (1.1)
+  - Masonry (1.0.2)
+  - MJRefresh (3.1.14.1)
+  - pop (1.0.10)
+  - Reachability (3.2)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - BusinessZ (~> 0.1.4)
+  - FDFullscreenPopGesture (~> 1.1)
+  - Masonry (~> 1.0.2)
+  - MJRefresh (~> 3.1.14.1)
+  - pop (~> 1.0.10)
+  - Reachability (~> 3.2)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BusinessZ: 80e816b3e648a4e9e35aa70185b94f56856b47bd
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJRefresh: 238e6a37e2dba12160ee3b79f6d2a2b26abcab42
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+
+PODFILE CHECKSUM: 81abb66dab7acb7d90263d82950d20e67ae9e76d
+
+COCOAPODS: 1.3.1
