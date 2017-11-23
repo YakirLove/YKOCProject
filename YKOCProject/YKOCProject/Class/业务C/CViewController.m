@@ -7,12 +7,33 @@
 //
 
 #import "CViewController.h"
+#import "YKNoDataViewManager.h"
+@interface CViewController () <UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *dataArray;
+}
 
-@interface CViewController ()
-
+@property (nonatomic, strong) UITableView *dTableView;
 @end
 
 @implementation CViewController
+
+-(UITableView *)dTableView
+{
+    if(!_dTableView)
+    {
+        _dTableView = [[UITableView alloc] init];
+        _dTableView.delegate = self;
+        _dTableView.dataSource = self;
+//        _dTableView.footerClass = [YKDIYAutoFooter class];
+//        _dTableView.headerClass = [YKDIYHeader class];
+//        _dTableView.pullDelegate = self;
+//        _dTableView.enableMore = YES;
+//        _dTableView.enableRefresh = YES;
+        
+    }
+    return _dTableView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,24 +56,81 @@
     
     [self performSelector:@selector(sendRequest:) withObject:nil afterDelay:1];
     
+    dataArray = [[NSMutableArray alloc] init];
 }
 
 -(void)sendRequest:(id)sender
 {
-    YKRequestData *data = [YKRequestData initRequestData:@"post" parameters:@{@"data":@"1234"}];
+    YKRequestData *data = [YKRequestData initRequestData:@"FriendList" parameters:@{@"name":@"Yakir"}];
     data.loadingView = self.view;
     
     [[YKRequestManager sharedInstance] sendRequestData:data didCallback:^(YKResponseData *responseData) {
-        NSLog(@"one - %@",responseData.responseDic);
-        
-        YKRequestData *data = [YKRequestData initRequestData:@"FriendList" parameters:nil];
-        data.loadingView = self.view;
-        
-        [[YKRequestManager sharedInstance] sendRequestData:data didCallback:^(YKResponseData *responseData) {
-            NSLog(@"two - %@",responseData.responseDic);
-        }];
-        
+        NSLog(@"%@",responseData.responseDic);
+        NSMutableArray *array = [responseData.responseDic objectForKey:@"data"];
+        if(array.count == 0)
+        {
+            NSLog(@"没有数据");
+            [self.dTableView removeFromSuperview];
+            [[YKNoDataViewManager sharedInstance] showNoDataView:self.view reloadData:^{
+                [self sendRequest:nil];
+            }];
+        }
+        else
+        {
+            NSLog(@"有数据");
+            [self.view addSubview:self.dTableView];
+            
+            [self.dTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(self.view).offset(64);
+                make.left.mas_equalTo(self.view);
+                make.right.mas_equalTo(self.view);
+                make.bottom.mas_equalTo(self.view);
+            }];
+            
+            [dataArray addObjectsFromArray:array];
+            [self.dTableView reloadData];
+        }
     }];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return dataArray.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+    }
+    else
+    {
+        for(UIView *tView in cell.contentView.subviews)
+        {
+            [tView removeFromSuperview];
+        }
+    }
+    
+    NSDictionary *dic = dataArray[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -81,6 +81,7 @@
 		31AC2EA61FB5B91100A47CE9 /* YKDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AC2EA51FB5B91100A47CE9 /* YKDIYAutoFooter.m */; };
 		31AC2EA91FB5B94500A47CE9 /* TableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AC2EA71FB5B94400A47CE9 /* TableFooterView.m */; };
 		31AC2EAC1FC2793900A47CE9 /* YKDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AC2EAB1FC2793900A47CE9 /* YKDIYHeader.m */; };
+		31AC2EF61FC3FFA000A47CE9 /* YKNoDataViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AC2EF51FC3FFA000A47CE9 /* YKNoDataViewManager.m */; };
 		869611F97AF793B01EB8D4AF /* libPods-YKOCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2067324CFFD3FC0290B1E4 /* libPods-YKOCProject.a */; };
 		B2ED566DD0C342ABF03BF83C /* libPods-YKOCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2067324CFFD3FC0290B1E4 /* libPods-YKOCProject.a */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,8 @@
 		31AC2EA81FB5B94400A47CE9 /* TableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableFooterView.h; sourceTree = "<group>"; };
 		31AC2EAA1FC2793900A47CE9 /* YKDIYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKDIYHeader.h; sourceTree = "<group>"; };
 		31AC2EAB1FC2793900A47CE9 /* YKDIYHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKDIYHeader.m; sourceTree = "<group>"; };
+		31AC2EF51FC3FFA000A47CE9 /* YKNoDataViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKNoDataViewManager.m; sourceTree = "<group>"; };
+		31AC2EF71FC3FFFE00A47CE9 /* YKNoDataViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKNoDataViewManager.h; sourceTree = "<group>"; };
 		A4FA91DFC3AF4D577F62EA33 /* Pods-YKOCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YKOCProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YKOCProject/Pods-YKOCProject.release.xcconfig"; sourceTree = "<group>"; };
 		A5BE333401B3203A8F9C35AF /* Pods-YKOCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YKOCProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YKOCProject/Pods-YKOCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CA2067324CFFD3FC0290B1E4 /* libPods-YKOCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YKOCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +282,7 @@
 		31602EAD1F8CC4CD004201AB /* YKOCProject */ = {
 			isa = PBXGroup;
 			children = (
+				31AC2EF31FC3FEEF00A47CE9 /* 无数据 */,
 				310DEE491F974AEF00D45232 /* 接口封装 */,
 				31101CE11F948D7E00CE36D8 /* 网络请求 */,
 				31602ECE1F8CC512004201AB /* 中间件 */,
@@ -542,6 +546,15 @@
 			path = "表格";
 			sourceTree = "<group>";
 		};
+		31AC2EF31FC3FEEF00A47CE9 /* 无数据 */ = {
+			isa = PBXGroup;
+			children = (
+				31AC2EF71FC3FFFE00A47CE9 /* YKNoDataViewManager.h */,
+				31AC2EF51FC3FFA000A47CE9 /* YKNoDataViewManager.m */,
+			);
+			path = "无数据";
+			sourceTree = "<group>";
+		};
 		CD9A44D895F182A0560DFF58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +779,7 @@
 				31602F0E1F8CC513004201AB /* CViewController.m in Sources */,
 				31101CEA1F94A89900CE36D8 /* YKBaseViewModel.m in Sources */,
 				310DEE5E1F99EBD700D45232 /* YKCachedObject.m in Sources */,
+				31AC2EF61FC3FFA000A47CE9 /* YKNoDataViewManager.m in Sources */,
 				31AC2EAC1FC2793900A47CE9 /* YKDIYHeader.m in Sources */,
 				31602F081F8CC513004201AB /* CTMediator+C.m in Sources */,
 				310DEE5D1F99EBD700D45232 /* YKCache.m in Sources */,

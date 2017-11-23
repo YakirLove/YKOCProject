@@ -11,6 +11,7 @@
 #import "YKDIYAutoFooter.h"
 #import "YKDIYHeader.h"
 
+
 @interface DViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, YKTableViewDelegate>
 {
     NSMutableArray *dataArray;
@@ -105,6 +106,7 @@
         if(array.count == 0)
         {
             //没有数据
+            
         }
         [self.dTableView reloadData];
         [self.dTableView endRefreshing];
