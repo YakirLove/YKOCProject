@@ -25,12 +25,6 @@
         _dTableView = [[UITableView alloc] init];
         _dTableView.delegate = self;
         _dTableView.dataSource = self;
-//        _dTableView.footerClass = [YKDIYAutoFooter class];
-//        _dTableView.headerClass = [YKDIYHeader class];
-//        _dTableView.pullDelegate = self;
-//        _dTableView.enableMore = YES;
-//        _dTableView.enableRefresh = YES;
-        
     }
     return _dTableView;
 }

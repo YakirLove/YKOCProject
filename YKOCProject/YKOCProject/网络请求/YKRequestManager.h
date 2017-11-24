@@ -13,11 +13,6 @@
 static NSString * const kRequestManagerCode = @"kRequestManagerCode";
 static NSString * const kRequestManagerMessage = @"kRequestManagerMessage";
 
-typedef NS_ENUM (NSUInteger, YKRequestCallBackType){
-    YKRequestCallBackTypeBlock = 0,
-    YKRequestCallBackTypeDelegate
-};
-
 typedef NS_ENUM (NSInteger, YKReachabilityStatus) {
     YKReachabilityStatusNotReachable        = 0,
     YKReachabilityStatusReachableViaWWAN    = 1,
@@ -38,7 +33,6 @@ typedef NS_ENUM (NSInteger, YKReachabilityStatus) {
 
 @interface YKRequestManager : NSObject
 
-@property (nonatomic, assign) YKRequestCallBackType type;
 @property (nonatomic, assign) id <YKRequestManagerDelegate> delegate;
 @property (nonatomic, assign) id reformParams;
 @property (nonatomic, strong) YKRequest *request;

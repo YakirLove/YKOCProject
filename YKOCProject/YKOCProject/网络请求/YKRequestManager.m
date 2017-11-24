@@ -94,16 +94,13 @@
 
 -(YKReachabilityStatus)reachabilityStatus
 {
-    if([[AFNetworkReachabilityManager sharedManager] isReachable])
+    if([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
-        if([[AFNetworkReachabilityManager sharedManager] isReachableViaWiFi])
-        {
-            return YKReachabilityStatusReachableViaWiFi;
-        }
-        else if([[AFNetworkReachabilityManager sharedManager] isReachableViaWWAN])
-        {
-            return YKReachabilityStatusReachableViaWWAN;
-        }
+        return YKReachabilityStatusReachableViaWiFi;
+    }
+    else if([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusReachableViaWiFi)
+    {
+        return YKReachabilityStatusReachableViaWWAN;
     }
     else
     {
